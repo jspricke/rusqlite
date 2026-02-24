@@ -202,6 +202,9 @@ mod build_bundled {
                 cfg.include(env::var("DEP_OPENSSL_INCLUDE").unwrap());
                 // cargo will resolve downstream to the static lib in
                 // openssl-sys
+            } else if cfg!(feature = "bundled-sqlcipher-libtomcrypt") {
+                cfg.flag("-DSQLCIPHER_CRYPTO_LIBTOMCRYPT");
+                println!("cargo:rustc-link-lib=tomcrypt");
             } else if use_openssl {
                 cfg.include(inc_dir.to_string_lossy().as_ref());
                 let lib_name = if is_windows { "libcrypto" } else { "crypto" };
