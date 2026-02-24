@@ -16,7 +16,14 @@ default = ["min_sqlite_version_3_14_0"]
 bundled = ["cc", "bundled_bindings"]
 bundled-windows = ["cc", "bundled_bindings"]
 bundled-sqlcipher = ["bundled"]
-bundled-sqlcipher-vendored-openssl = ["bundled-sqlcipher", "openssl-sys/vendored"]
+bundled-sqlcipher-vendored-openssl = [
+    "bundled-sqlcipher",
+    "openssl-sys/vendored",
+]
+bundled-sqlcipher-vendored-boringssl = [
+    "bundled-sqlcipher",
+    "boring-sys",
+]
 buildtime_bindgen = ["bindgen", "pkg-config", "vcpkg"]
 sqlcipher = []
 min_sqlite_version_3_14_0 = ["pkg-config", "vcpkg"]
@@ -36,6 +43,7 @@ wasm32-wasi-vfs = []
 
 [dependencies]
 openssl-sys = { version = "0.9.103", optional = true }
+boring-sys = { version = "5.0.2", optional = true }
 
 [build-dependencies]
 bindgen = { version = "0.71", optional = true, default-features = false, features = ["runtime"] }

@@ -4,6 +4,10 @@
 #[cfg(feature = "bundled-sqlcipher-vendored-openssl")]
 extern crate openssl_sys;
 
+// force linking to boring
+#[cfg(feature = "bundled-sqlcipher-vendored-boringssl")]
+extern crate boring_sys;
+
 pub use self::error::*;
 
 use std::mem;

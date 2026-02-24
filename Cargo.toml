@@ -49,6 +49,10 @@ bundled-sqlcipher-vendored-openssl = [
     "libsqlite3-sys/bundled-sqlcipher-vendored-openssl",
     "bundled-sqlcipher",
 ]
+bundled-sqlcipher-vendored-boringssl = [
+    "libsqlite3-sys/bundled-sqlcipher-vendored-boringssl",
+    "bundled-sqlcipher"
+]
 buildtime_bindgen = ["libsqlite3-sys/buildtime_bindgen"]
 limits = []
 loadable_extension = ["libsqlite3-sys/loadable_extension"]
